@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Titulos;
+    src: url(assets/fonts/FontsFree-Net-Tungsten-Bold.woff2);
+}
+@font-face {
+    font-family: Textos;
+    src: url(assets/fonts/dinnextw1g.woff2);
+}
+
+*{
+    font-family: Textos;
+}
+
+/* Contenedor principal para posicionar texto sobre el video */
+.video-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+
+/* Estilo para el video */
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Texto encima del video */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    /* Centrar verticalmente */
+    left: 50%;
+    /* Centrar horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta la posición exacta */
+    color: white;
+    font-size: 2rem;
+    /* Ajusta el tamaño del texto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Sombra para visibilidad */
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
