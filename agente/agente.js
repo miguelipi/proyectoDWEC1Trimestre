@@ -1,82 +1,61 @@
-// Obtener los parámetros de la URL
-const queryString = window.location.search;
-
-// Crear un objeto URLSearchParams para manejar los parámetros
-const urlParams = new URLSearchParams(queryString);
-
-// Recuperar el valor del parámetro "id"
-const id = urlParams.get('id');
-console.log(id)
-const apiUrl = "https://valorant-api.com/v1/agents/"+id.toString();
+const id = new URL(window.location).searchParams.get("id"); 
+console.log(id);
+const apiUrl = `https://valorant-api.com/v1/agents/${id}`; // Usar directamente la URL con el id
 
 fetch(apiUrl)
-  .then(response => {
-    return response.json();
-  })
+  .then(response => response.json())
   .then(jsondata => procesarJSON(jsondata))
-  .catch(e => { console.log(e) });
+  .catch(e => { console.log(e); });
 
+function procesarJSON(jsondata) {
   
-function procesarJSON(jsondata){
 
-    //procesarJSON
+  const agente = jsondata.data;
 
-    let plantilla = document.getElementById("plantilla");
-    let contenedor = plantilla.parentNode;
-    contenedor.removeChild(plantilla);
+  // Asignar los datos del agente
+  let propiedad = document.getElementById("nombreAgente");
+  propiedad.textContent = agente.displayName;
 
-      let card = plantilla.cloneNode(true);
-      contenedor.appendChild(card);
+  propiedad = document.getElementById("descripcionAgente");
+  propiedad.textContent = agente.description;
 
-      card.setAttribute("id", "agente_"+jsondata.uuid);
-      let propiedad = document.getElementById("nombreAgente");
-      propiedad.textContent = jsondata.displayName;
-      propiedad = document.getElementById("descripcionAgente");
-      propiedad.textContent = jsondata.description;
+  // Asignar el rol
+  propiedad = document.getElementById("imagenRol");
+  propiedad.setAttribute("src", agente.role.displayIcon);
 
+  propiedad = document.getElementById("nombreRol");
+  propiedad.textContent = agente.role.displayName;
 
-      propiedad = document.getElementById("imagenRol");
-      propiedad.setAttribute("src", jsondata.data.role.displayIcon);
-      propiedad = document.getElementById("nombreRol");
-      propiedad.textContent = jsondata.data.role.displayName;
-      propiedad = document.getElementById("imagenAgente");
-      propiedad.setAttribute("src", jsondata.fullPortrait)
+  // Asignar la imagen del agente
+  propiedad = document.getElementById("imagenAgente");
+  propiedad.setAttribute("src", agente.fullPortrait);
 
-      let plantilla2 = document.getElementById("plantilla2");
-      let contenedor2 = plantilla2.parentNode;
-      contenedor2.removeChild(plantilla2);
+  // Asignar habilidades 
+  if (agente.abilities[0]) {
+    let habilidad = agente.abilities[0];
+    document.getElementById("nombreHabilidad_1").textContent = habilidad.displayName;
+    document.getElementById("imagenHabilidad_1").setAttribute("src", habilidad.displayIcon);
+    document.getElementById("descripcionHabilidad_1").textContent = habilidad.description;
+  }
 
-      for(let habilidad of jsondata.data.abilities){
-        
-        let card2 = plantilla2.cloneNode(true);
-        contenedor2.appendChild(card2)
-        card.setAttribute("id", "habilidad_"+habilidad.slot)
+  if (agente.abilities[1]) {
+    let habilidad = agente.abilities[1];
+    document.getElementById("nombreHabilidad_2").textContent = habilidad.displayName;
+    document.getElementById("imagenHabilidad_2").setAttribute("src", habilidad.displayIcon);
+    document.getElementById("descripcionHabilidad_2").textContent = habilidad.description;
+  }
 
-        propiedad = document.getElementById("nombreHabilidad");
-        propiedad.textContent = habilidad.displayName;
-        propiedad = document.getElementById("imagenHabilidad");
-        propiedad.textContent = habilidad.displayIcon
-        propiedad = document.getElementById("descripcionHabilidad");
-        propiedad.textContent = habilidad.description;
-      }
+  if (agente.abilities[2]) {
+    let habilidad = agente.abilities[2];
+    document.getElementById("nombreHabilidad_3").textContent = habilidad.displayName;
+    document.getElementById("imagenHabilidad_3").setAttribute("src", habilidad.displayIcon);
+    document.getElementById("descripcionHabilidad_3").textContent = habilidad.description;
+  }
 
-
-    const a = document.createElement("a");
-  //cuidadiinn joorrlll, que estamos con un literal de cadena
-  const archivo = new Blob([`
-  <!doctype html>
-  <html lang="en">
-  `+ document.head.outerHTML + `
-
-  <!-- Todo lo que viene ahora lo has creado tu solit@ con javascript y jugando con el DOM
-       y esto solo la punta del iceberg de todo lo que vas a crear!!!
-       venga! vamos a por ello  -->
-
-  `+ document.body.outerHTML + `
-  </html>`], { type: 'html' });
-  const url = URL.createObjectURL(archivo);
-  a.href = url;
-  a.download = "statico.html";
-  a.innerHTML = ""
-  document.getElementsByTagName("footer")[0].appendChild(a);
+  if (agente.abilities[3]) {
+    let habilidad = agente.abilities[3];
+    document.getElementById("nombreHabilidad_4").textContent = habilidad.displayName;
+    document.getElementById("imagenHabilidad_4").setAttribute("src", habilidad.displayIcon);
+    document.getElementById("descripcionHabilidad_4").textContent = habilidad.description;
+  }
 }
