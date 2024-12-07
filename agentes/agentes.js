@@ -12,7 +12,27 @@ function procesarJSON(jsondata){
 
     //procesarJSON
 
-    
+    let plantilla = document.getElementById("plantilla");
+    let contenedor = plantilla.parentNode;
+    contenedor.removeChild(plantilla);
+
+    for(let agente of jsondata.data){
+
+      let card = plantilla.cloneNode(true);
+      contenedor.appendChild(card);
+
+      card.setAttribute("id", "agente_"+agente.uuid);
+      let propiedad = document.getElementById("enlaceAgente");
+      propiedad.setAttribute("href", `../agente/agente.html?id=${agente.uuid}`);
+      propiedad.setAttribute("id", "enlaceAgente_"+agente.uuid);
+      propiedad = document.getElementById("fotoAgente");
+      propiedad.setAttribute("id", "imagenAgente_"+agente.uuid);
+      propiedad.setAttribute("src",agente.displayIconSmall);
+      propiedad = document.getElementById("titulo");
+      propiedad.setAttribute("id", "titulo_"+agente.uuid);
+      propiedad.textContent = agente.displayName;
+
+    }
 
     const a = document.createElement("a");
   //cuidadiinn joorrlll, que estamos con un literal de cadena
