@@ -1,13 +1,20 @@
 @font-face {
     font-family: Titulos;
-    src: url(assets/fonts/FontsFree-Net-Tungsten-Bold.woff2);
+    src: url(../assets/fonts/FontsFree-Net-Tungsten-Bold.woff2);
 }
 @font-face {
     font-family: Textos;
-    src: url(assets/fonts/dinnextw1g.woff2);
+    src: url(../assets/fonts/dinnextw1g.woff2);
 }
 
 *{
+    font-family: Textos;
+}
+
+.titulo{
+    font-family: Titulos;
+}
+.textos{
     font-family: Textos;
 }
 
@@ -41,4 +48,21 @@
     /* Sombra para visibilidad */
     font-family: Arial, sans-serif;
     text-align: center;
+}
+
+i{
+    background-color: #42484eb2;
+    padding: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+}
+
+#nav-link:hover{
+    color: #ff3744;
+    border-bottom: 2px solid #ff3744;
+}
+
+#rangos{
+    font-family: Titulos;
 }
