@@ -85,37 +85,37 @@
 
     </header>
     <main class="container">
-        <section class="info">
+        <section class="info" id="plantilla">
             <div>
-                <h1 class="title">Gekko</h1>
-                <p>Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies bound forward,
+                <h1 class="title" id="nombreAgente">Gekko</h1>
+                <p id="descripcionAgente">Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies bound forward,
                     scattering
                     enemies out of the way, with Gekko chasing them down to regroup and go again.</p>
                 <div class="mt-5 w-25 justify-content-center row rol p-4">
                     <img class="img-fluid w-50"
                         src="https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"
-                        alt="">
+                        alt="" id="imagenRol">
                     <p class="text-center mt-3">ROL</p>
-                    <p class="text-center" style="color: #ff4655;">Initiator</p>
+                    <p class="text-center" style="color: #ff4655;" id="nombreRol">Initiator</p>
                 </div>
             </div>
             <img src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png"
-                alt="" class="w-50">
+                alt="" class="w-50" id="imagenAgente">
         </section>
         <section class="container">
-            <h1 class="title">Abilidades</h1>
+            <h1 class="title">Habilidades</h1>
             <div>
 
-                <div class="row justify-content-center">
-                    <h1 class="title w-25 text-center" style="color: #ff4655;">Dizzy</h1>
+                <div class="row justify-content-center" id="plantilla2">
+                    <h1 class="title w-25 text-center" style="color: #ff4655;" id="nombreHabilidad">Dizzy</h1>
                     <div class=" w-25 justify-content-center row p-4">
-                        <img class="img-fluid w-50"
+                        <img class="img-fluid w-50" id="imagenHabilidad"
                             src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png"
                             alt="">
                     </div>
                 </div>
 
-                <p class="abilidad">Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies
+                <p class="fs-3 text-center" id="descripcionHabilidad">Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies
                     bound forward, scattering
                     enemies out of the way, with Gekko chasing them down to regroup and go again.</p>
 
@@ -123,8 +123,35 @@
         </section>
 
     </main>
-    <footer>
-        <!-- place footer here -->
+    <footer class="bg-dark p-4">
+        <div class="container d-flex justify-content-center">
+            <div class="text-white text-center w-25 mb-4">
+                <h4>Redes Sociales</h4>
+                <a href="#" class="text-white fs-5"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
+                <a href="#" class="text-white fs-5"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fa fa-youtube-play" aria-hidden="true"></i></a> 
+                <a href="#" class="text-white fs-5"><i class="fa fa-reddit" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <a class="text-decoration-none text-white px-4 my-4 fs-5" href="#">POLÍTICA DE PRIVACIDAD</a>
+            <a class="text-decoration-none text-white px-4 my-4 fs-5" href="#">TÉRMINOS DE USO</a>
+            <a class="text-decoration-none text-white px-4 my-4 fs-5" href="#">INFORMACIÓN DE LA EMPRESA</a>
+            <a class="text-decoration-none text-white px-4 my-4 fs-5" href="#">PREFERENCIAS DE COOCKIES</a>
+        </div>
+        <p class="text-center w-50 mx-auto" style="color: #6e747a">© 2020-2024 Riot Games, Inc. RIOT GAMES, VALORANT y todos los logotipos asociados son marcas comerciales, marcas de servicios o marcas registradas de Riot Games, Inc.</p>
+        <div class="container d-flex justify-content-center mt-4">
+            <img class="px-3"
+                src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/riotbar/74616f83f75bd2c1b61d2140777961d722b5e3fc-208x254.jpg?&h=100&fit=max"
+                alt="">
+            <img class="px-3"
+                src="data:image/jpeg;base64,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"
+                alt="">
+            <img class="px-3"
+                src="data:image/jpeg;base64,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"
+                alt="">
+        </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -134,6 +161,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+        <script src="./agente.js"></script>
 </body>
 
 </html>

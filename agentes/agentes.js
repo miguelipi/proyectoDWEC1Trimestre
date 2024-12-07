@@ -24,7 +24,13 @@ function procesarJSON(jsondata){
   
         card.setAttribute("id", "agente_"+agente.uuid);
         let propiedad = document.getElementById("enlaceAgente");
-        propiedad.setAttribute("href", `../agente/agente.html?id=${agente.uuid}`);
+        const url = `../agente/agente.html?id=${agente.uuid}`
+        console.log(url)
+        if(agente && agente.uuid)
+          propiedad.setAttribute("href", url);
+        
+        else
+          console.log("no hay uuid")
         propiedad.setAttribute("id", "enlaceAgente_"+agente.uuid);
         propiedad = document.getElementById("fotoAgente");
         propiedad.setAttribute("id", "imagenAgente_"+agente.uuid);

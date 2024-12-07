@@ -6,7 +6,8 @@ const urlParams = new URLSearchParams(queryString);
 
 // Recuperar el valor del parámetro "id"
 const id = urlParams.get('id');
-const apiUrl = "https://valorant-api.com/v1/agents/"+id;
+console.log(id)
+const apiUrl = "https://valorant-api.com/v1/agents/"+id.toString();
 
 fetch(apiUrl)
   .then(response => {
@@ -24,23 +25,41 @@ function procesarJSON(jsondata){
     let contenedor = plantilla.parentNode;
     contenedor.removeChild(plantilla);
 
-    for(let agente of jsondata){
-      if(agente.bustPortrait!=null){}
       let card = plantilla.cloneNode(true);
       contenedor.appendChild(card);
 
-      card.setAttribute("id", "agente_"+agente.uuid);
-      let propiedad = document.getElementById("titulo");
-      propiedad.textContent = agente.displayName;
-      propiedad = document.getElementById("descripcion");
-      propiedad.textContent = agente.description;
+      card.setAttribute("id", "agente_"+jsondata.uuid);
+      let propiedad = document.getElementById("nombreAgente");
+      propiedad.textContent = jsondata.displayName;
+      propiedad = document.getElementById("descripcionAgente");
+      propiedad.textContent = jsondata.description;
+
+
       propiedad = document.getElementById("imagenRol");
-      propiedad.setAttribute("src", agente.role.displayIcon);
-      propiedad = document.getElementById("rolAgente");
-      propiedad.textContent = agente.rol.displayName;
+      propiedad.setAttribute("src", jsondata.data.role.displayIcon);
+      propiedad = document.getElementById("nombreRol");
+      propiedad.textContent = jsondata.data.role.displayName;
+      propiedad = document.getElementById("imagenAgente");
+      propiedad.setAttribute("src", jsondata.fullPortrait)
 
+      let plantilla2 = document.getElementById("plantilla2");
+      let contenedor2 = plantilla2.parentNode;
+      contenedor2.removeChild(plantilla2);
 
-    }
+      for(let habilidad of jsondata.data.abilities){
+        
+        let card2 = plantilla2.cloneNode(true);
+        contenedor2.appendChild(card2)
+        card.setAttribute("id", "habilidad_"+habilidad.slot)
+
+        propiedad = document.getElementById("nombreHabilidad");
+        propiedad.textContent = habilidad.displayName;
+        propiedad = document.getElementById("imagenHabilidad");
+        propiedad.textContent = habilidad.displayIcon
+        propiedad = document.getElementById("descripcionHabilidad");
+        propiedad.textContent = habilidad.description;
+      }
+
 
     const a = document.createElement("a");
   //cuidadiinn joorrlll, que estamos con un literal de cadena
@@ -58,6 +77,6 @@ function procesarJSON(jsondata){
   const url = URL.createObjectURL(archivo);
   a.href = url;
   a.download = "statico.html";
-  a.innerHTML = "descarga el htlm que has creado con js y el dom"
+  a.innerHTML = ""
   document.getElementsByTagName("footer")[0].appendChild(a);
 }
