@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Titulos;
+    src: url(../assets/fonts/FontsFree-Net-Tungsten-Bold.woff2);
+}
+
+@font-face {
+    font-family: Textos;
+    src: url(../assets/fonts/dinnextw1g.woff2);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/122e6caea8b2a2dbb6d6e71eea4e24effab342da-5120x574.png);
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    font-family: Titulos;
+     color: white;
+}
+header{
+    font-family: Textos;
+}
+.card{
+    overflow: hidden;
+}
+.card img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al 110% */
+  }
+h1{
+    font-size: 6rem;
+    margin: 50px;
+}
+.valorant-roles{
+    font-family: Textos;
+    color: white;
+    width: 10rem;
+    padding: 10px;
+    background-color: #0f1923;
+}
