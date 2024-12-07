@@ -1,55 +1,39 @@
-const apiUrl = "https://valorant-api.com/v1/agents";
-let agentsData = []; // Variable global para almacenar todos los agentes
+const apiUrl = "https://valorant-api.com/v1/agents"
 
-// Obtener todos los agentes de la API
 fetch(apiUrl)
-  .then(response => response.json())
-  .then(jsondata => {
-    agentsData = jsondata.data; // Guardamos los agentes
-    renderAgents(agentsData); // Renderizamos todos los agentes inicialmente
+  .then(response => {
+    return response.json();
   })
-  .catch(e => {
-    console.log(e);
-  });
+  .then(jsondata => procesarJSON(jsondata))
+  .catch(e => { console.log(e) });
 
-// Función para renderizar los agentes en el contenedor
-function renderAgents(agents) {
-    let contenedor = document.getElementById("agentsContainer");
-    contenedor.innerHTML = ""; // Limpiamos el contenedor
+  
+function procesarJSON(jsondata){
 
-    // Recorremos cada agente y lo mostramos
-    agents.forEach(agente => {
-        if (agente.bustPortrait != null) {
-            let card = document.createElement("div");
-            card.classList.add("col-5", "col-md-4", "col-xxl-3", "my-3");
+    //procesarJSON
 
-            card.innerHTML = `
-                <div class="card">
-                    <a href="../agente/agente.html?id=${agente.uuid}" class="text-center">
-                        <img src="${agente.displayIcon}" alt="${agente.displayName}" class="card-img-top" />
-                    </a>
-                    <div class="card-body">
-                        <h3 class="card-title">${agente.displayName}</h3>
-                    </div>
-                </div>
-            `;
-            contenedor.appendChild(card); // Agregamos el card al contenedor
-        }
-    });
-}
+    let plantilla = document.getElementById("plantilla");
+    let contenedor = plantilla.parentNode;
+    contenedor.removeChild(plantilla);
 
-// Función que se ejecuta cuando se selecciona un rol del select
-document.getElementById("roleSelect").addEventListener("change", function() {
-    const selectedRole = this.value;
+    for(let agente of jsondata.data){
+      if(agente.bustPortrait!=null){
+       
+        let card = plantilla.cloneNode(true);
+        contenedor.appendChild(card);
+  
+        card.setAttribute("id", "agente_"+agente.uuid);
+        let propiedad = document.getElementById("enlaceAgente");
+        propiedad.setAttribute("href", `../agente/agente.html?id=${agente.uuid}`);
+        propiedad.setAttribute("id", "enlaceAgente_"+agente.uuid);
+        propiedad = document.getElementById("fotoAgente");
+        propiedad.setAttribute("id", "imagenAgente_"+agente.uuid);
+        propiedad.setAttribute("src",agente.displayIcon);
+        propiedad = document.getElementById("titulo");
+        propiedad.setAttribute("id", "titulo_"+agente.uuid);
+        propiedad.textContent = agente.displayName;
+        
+      }
 
-    // Filtrar agentes según el rol seleccionado
-    let filteredAgents;
-    if (selectedRole === "all") {
-        filteredAgents = agentsData; // Si selecciona "Todos", mostramos todos los agentes
-    } else {
-        filteredAgents = agentsData.filter(agent => agent.role === selectedRole); // Filtramos por rol
     }
-
-    renderAgents(filteredAgents); // Renderizamos los agentes filtrados
-});
-
+}

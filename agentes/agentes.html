@@ -85,12 +85,14 @@
     </header>
     <main class="container" >
         <h1>AGENTES</h1>
-        <select class="valorant-roles">
+        <select id="roleSelect" class="roleValorant">
+            <option value="all">Todos</option>
             <option value="Initiator">Initiator</option>
             <option value="Duelist">Duelist</option>
             <option value="Sentinel">Sentinel</option>
             <option value="Controller">Controller</option>
         </select>
+        
         <div class="row">
             <div class="col-5 col-md-4 col-xxl-3 my-3" id="plantilla">
                 <div class="card">
@@ -118,7 +120,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-        <script src="./agentes.js"></script>
+        <script src="../agentes/agentes.js"></script>
 </body>
 
 </html>
