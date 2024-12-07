@@ -18,7 +18,7 @@ function procesarJSON(jsondata){
 
     for(let agente of jsondata.data){
       if(agente.bustPortrait!=null){
-
+       
         let card = plantilla.cloneNode(true);
         contenedor.appendChild(card);
   
@@ -38,6 +38,7 @@ function procesarJSON(jsondata){
         propiedad = document.getElementById("titulo");
         propiedad.setAttribute("id", "titulo_"+agente.uuid);
         propiedad.textContent = agente.displayName;
+        
       }
 
     }
