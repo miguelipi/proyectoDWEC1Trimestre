@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Titulos;
+    src: url(../assets/fonts/FontsFree-Net-Tungsten-Bold.woff2);
+}
+
+@font-face {
+    font-family: Textos;
+    src: url(../assets/fonts/dinnextw1g.woff2);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    font-family: Textos;
+} 
+i{
+    background-color: #42484eb2;
+    padding: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+}

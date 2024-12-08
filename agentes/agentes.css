@@ -41,3 +41,10 @@ h1{
     padding: 10px;
     background-color: #0f1923;
 }
+i{
+    background-color: #42484eb2;
+    padding: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+}

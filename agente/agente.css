@@ -43,3 +43,10 @@ header{
     font-family: Textos;
 
 }
+i{
+    background-color: #42484eb2;
+    padding: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+}

@@ -12,6 +12,9 @@ function procesarJSON(jsondata) {
 
   const agente = jsondata.data;
 
+  //Asignar el nombre del agente al titulo de la pagina
+  document.title = `${agente.displayName}`;
+
   // Asignar los datos del agente
   let propiedad = document.getElementById("nombreAgente");
   propiedad.textContent = agente.displayName;
