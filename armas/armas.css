@@ -22,3 +22,14 @@ i{
     margin-right: 2%;
     border-radius: 10px;
 }
+h1{
+    font-family: Titulos;
+    font-size: 6rem;
+}
+.Type{
+    font-family: Textos;
+    color: #0f1923;
+    width: 10rem;
+    padding: 10px;
+    background-color: white;
+}
