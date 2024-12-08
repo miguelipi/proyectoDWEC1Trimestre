@@ -39,4 +39,18 @@ function procesarJSONSkins(jsondata){
     }
 
 }
+document.getElementById("type").addEventListener("change", function() {
+    const selectedCategory = this.value; // Obtiene el valor seleccionado
+    const armas = document.querySelectorAll("[id^='arma']"); // Selecciona todas las armas
+
+    armas.forEach(arma => {
+        const category = arma.querySelector("[id^='typeArma']").textContent.trim(); // Categoría del arma
+        if (selectedCategory === "all" || category === selectedCategory) {
+            arma.style.display = ""; // Muestra el arma
+        } else {
+            arma.style.display = "none"; // Oculta el arma
+        }
+    });
+});
+
 

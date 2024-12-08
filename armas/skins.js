@@ -5,29 +5,6 @@ fetch(urlPacks)
   .then(jsondata => procesarJSONPacks(jsondata))
   .catch(e => { console.log(e); });
 
-function procesarJSONPacks(jsondata) {
-    let packs = {}; // packs será un objeto
-
-    // Organizar los datos en el objeto packs
-    for (let pack of jsondata.data) {
-        if (!packs[pack.displayName]) {
-            packs[pack.displayName] = [];
-        }
-        packs[pack.displayName].push(pack);
-    }
-    console.log(packs);
-
-    let plantillaPack = document.getElementById("plantillaPack");
-
-    for (let packName in packs) {
-        let option = plantillaPack.cloneNode(true);
-        plantillaPack.parentNode.appendChild(option);
-
-        option.setAttribute("id", "pack_" + packName);
-        option.textContent = packName;
-    }
-}
-
 const id = new URL(window.location).searchParams.get("id"); 
 console.log(id);
 const apiUrl = `https://valorant-api.com/v1/weapons/${id}`; // Usar directamente la URL con el id
