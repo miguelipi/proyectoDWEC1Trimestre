@@ -1,32 +1,4 @@
-const urlPacks = "https://valorant-api.com/v1/themes";
 
-fetch(urlPacks)
-  .then(response => response.json())
-  .then(jsondata => procesarJSONPacks(jsondata))
-  .catch(e => { console.log(e); });
-
-function procesarJSONPacks(jsondata) {
-    let packs = {}; // packs será un objeto
-
-    // Organizar los datos en el objeto packs
-    for (let pack of jsondata.data) {
-        if (!packs[pack.displayName]) {
-            packs[pack.displayName] = [];
-        }
-        packs[pack.displayName].push(pack);
-    }
-    console.log(packs);
-
-    let plantillaPack = document.getElementById("plantillaPack");
-
-    for (let packName in packs) {
-        let option = plantillaPack.cloneNode(true);
-        plantillaPack.parentNode.appendChild(option);
-
-        option.setAttribute("id", "pack_" + packName);
-        option.textContent = packName;
-    }
-}
 
 const urlSkins = "https://valorant-api.com/v1/weapons";
 fetch(urlSkins)
@@ -55,9 +27,14 @@ function procesarJSONSkins(jsondata){
         propiedadArma.textContent = arma.displayName;
         propiedadArma = document.getElementById("typeArma");
         propiedadArma.setAttribute("id", "typeArma"+arma.uuid);
-        propiedadArma.textContent = arma.shopData.category;
-        
-
+        if(arma.shopData == null){
+            propiedadArma.textContent = arma.displayName
+        }else{
+            propiedadArma.textContent = arma.shopData.category;
+        }
+        propiedadArma = document.getElementById("enlace");
+        propiedadArma.setAttribute("id", "enlace"+arma.uuid);
+        propiedadArma.setAttribute("href", "skin.html?id="+arma.uuid);
 
     }
 
