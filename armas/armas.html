@@ -92,15 +92,17 @@
                 <option value="Pistols">PISTOLAS</option>
                 <option value="Sniper Rifles">FRNACOTIRADORES</option>
                 <option value="SMGs">SUBFUSILES</option>
-
+            </select>
+            <select id="pack" class="Type">
+                <option value="all" id="plantillaPack">Todos</option>
             </select>
             <div class="row justify-content-center m-4">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top mt-3" src="https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/displayicon.png" alt="Title" />
-                        <div class="card-body">
-                            <h4 class="card-title">ODIN.</h4>
-                            <p class="card-text">Types// Heavy Weapon</p>
+                <div class="col-12 col-sm-6 col-lg-4 mb-3" id="plantillaArmas">
+                    <div class="card h-100">
+                        <img class="card-img-top  mt-auto" id="imagen" src="https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/displayicon.png" alt="Title" />
+                        <div class="card-body row align-items-end">
+                            <h4 class="card-title col " id="nombreArma">ODIN.</h4>
+                            <p class="card-text col" id="typeArma">Types// Heavy Weapon</p>
                         </div>
                     </div>
                 </div>
@@ -150,6 +152,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+        <script src="armas.js"></script>
 </body>
 
 </html>
